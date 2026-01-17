@@ -14,7 +14,7 @@ local LocalPlayer = Players.LocalPlayer
 -- WINDOW
 local Window = Fluent:CreateWindow({
     Title = "Saint Hub",
-    SubTitle = "Feito pelo sants7x0",
+    SubTitle = "Feito pelo ",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
     Acrylic = true,
@@ -392,6 +392,11 @@ areaDropdown:OnChanged(function(Value)
     selectedArea = Value
     refreshBrainrots(selectedArea)
 end)
+
+    Tabs.Brainrots:AddParagraph({
+        Title = "Como usar",
+        Content = "Vai pra area safe onde seu brainrot esta, aquela que nao toma dano quando o tsunami passa. seleciona a area onde ele esta e depois dar refresh dai seleciona o brainrot e usa o botao coleta"
+    })
 
 -- BRAINROT DROPDOWN
 brainrotDropdown = Tabs.Brainrots:AddDropdown("BrainrotDropdown", {
