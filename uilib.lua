@@ -822,15 +822,6 @@ function Library:create(options)
 		end)
 	end
 
-	local creditsTabIcon = profile:object("ImageButton", {
-		BackgroundTransparency = 1,
-		Theme = {ImageColor3 = "WeakText"},
-		Size = UDim2.fromOffset(24, 24),
-		Position = UDim2.new(1, -44, 1, -10),
-		AnchorPoint = Vector2.new(1, 1),
-		Image = "http://www.roblox.com/asset/?id=8577523456"
-	}):tooltip("credits")
-
 	local quickAccess = homePage:object("Frame", {
 		BackgroundTransparency = 1,
 		Size = UDim2.new(1, -20, 0, 180)
@@ -902,20 +893,6 @@ function Library:create(options)
 		end,
 	}
 
-	local creditsTab = Library.tab(mt, {
-		Name = "Credits",
-		Internal = creditsTabIcon,
-		Icon = "http://www.roblox.com/asset/?id=8577523456"
-	})
-
-	rawset(mt, "creditsContainer", creditsTab.container)
-
-	creditsTab:credit{Name = "Abstract", Description = "UI Library Developer", Discord = "Abstract#8007", V3rmillion = "AbstractPoo"}
-	creditsTab:credit{Name = "Deity", Description = "UI Library Developer", Discord = "Deity#0228", V3rmillion = "0xDEITY"}
-	creditsTab:credit{Name = "Repository", Description = "UI Library Repository", Github="https://github.com/deeeity/mercury-lib/blob/master/src.lua"}
-
-	return mt
-end
 
 function Library:notification(options)
 	options = self:set_defaults({
