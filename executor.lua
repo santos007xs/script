@@ -49,10 +49,22 @@ closeBtn.MouseButton1Click:Connect(function()
     gui:Destroy()
 end)
 
+local scrollFrame = Instance.new("ScrollingFrame")
+scrollFrame.Size = UDim2.new(1, -20, 1, -96)
+scrollFrame.Position = UDim2.new(0, 10, 0, 46)
+scrollFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+scrollFrame.BorderSizePixel = 0
+scrollFrame.ScrollBarThickness = 4
+scrollFrame.ScrollBarImageColor3 = Color3.fromRGB(100, 60, 180)
+scrollFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+scrollFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
+scrollFrame.Parent = frame
+Instance.new("UICorner", scrollFrame).CornerRadius = UDim.new(0, 8)
+
 local box = Instance.new("TextBox")
-box.Size = UDim2.new(1, -20, 1, -96)
-box.Position = UDim2.new(0, 10, 0, 46)
-box.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+box.Size = UDim2.new(1, 0, 0, 0)
+box.AutomaticSize = Enum.AutomaticSize.Y
+box.BackgroundTransparency = 1
 box.TextColor3 = Color3.fromRGB(180, 220, 255)
 box.TextSize = 12
 box.Font = Enum.Font.Code
@@ -63,8 +75,8 @@ box.MultiLine = true
 box.ClearTextOnFocus = false
 box.TextXAlignment = Enum.TextXAlignment.Left
 box.TextYAlignment = Enum.TextYAlignment.Top
-box.Parent = frame
-Instance.new("UICorner", box).CornerRadius = UDim.new(0, 8)
+box.TextWrapped = true
+box.Parent = scrollFrame
 
 local btn = Instance.new("TextButton")
 btn.Size = UDim2.new(1, -20, 0, 40)
