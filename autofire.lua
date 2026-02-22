@@ -18,12 +18,30 @@ getgenv().StartAutoFire = function(target)
             if hum.Health <= 0 then continue end
 
             local UIS = game:GetService("UserInputService")
-            if UIS:IsKeyDown(Enum.KeyCode.Insert) then continue end
+            if UIS:IsKeyDown(Enum.KeyCode.Insert) then
+                -- destrava shiftlock quando abre menu
+                local myChar = game.Players.LocalPlayer.Character
+                local myRoot = myChar and myChar:FindFirstChild("HumanoidRootPart")
+                if myRoot then
+                    myRoot.CFrame = CFrame.new(myRoot.Position)
+                end
+                continue
+            end
             if UIS:GetFocusedTextBox() ~= nil then continue end
 
             local camera = workspace.CurrentCamera
             local screenPos, onScreen = camera:WorldToScreenPoint(root.Position)
             if not onScreen then continue end
+
+            -- shiftlock: trava personagem olhando pro alvo
+            local myChar = game.Players.LocalPlayer.Character
+            local myRoot = myChar and myChar:FindFirstChild("HumanoidRootPart")
+            if myRoot then
+                myRoot.CFrame = CFrame.new(
+                    myRoot.Position,
+                    Vector3.new(root.Position.X, myRoot.Position.Y, root.Position.Z)
+                )
+            end
 
             camera.CFrame = CFrame.new(camera.CFrame.Position, root.Position)
 
